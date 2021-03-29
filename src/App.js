@@ -1,25 +1,39 @@
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import { Navbar, NavbarBrand } from 'reactstrap';
 import './App.css';
+import Clouds from "./video/clouds.mp4"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+    render() {
+        return (
+          <React.Fragment>
+            <div className="App">
+                <video autoPlay loop muted
+                style={{
+                  position: 'absolute',
+                  width: '100%',
+                  left: '50%',
+                  top: '50%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  transform: 'translate(-50%, -50%)',
+                  zIndex: '-1'
+                }}
+                >
+                  <source src={Clouds} type="video/mp4" />
+                </video>
+                <Navbar color="transparent">
+                <div className="container">
+                    <NavbarBrand href="/"></NavbarBrand>
+                </div>
+                </Navbar>
+            </div>
+            <div style={{textAlign: 'center', height: '100px'}}>
+            <h1 style={{color: 'white', position: 'relative', top: '5%', transform: 'translateY(-50%'}}>SHEPHERD'S PASTURE ASSEMBLY</h1>
+          </div>
+          </React.Fragment>
+        );
+    }
 }
 
 export default App;
